@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
       .pipe(
         tap(user => {
           console.log(user);
-          this.store.dispatch(login({ user }));
           // type unsafe:
           // this.store.dispatch({
           //   type: 'Login Action',
@@ -47,6 +46,7 @@ export class LoginComponent implements OnInit {
           //     userProfile: user
           //   }
           // });
+          this.store.dispatch(login({ user }));
           this.router.navigateByUrl('/courses');
         })
       )
